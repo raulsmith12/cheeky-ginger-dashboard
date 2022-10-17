@@ -8,6 +8,7 @@ const HomeSlider = props => {
     const [description, setDescription] = useState('');
     const [url, setUrl] = useState('');
     const [position, setPosition] = useState();
+    const [uploadImage, setUploadImage] = useState('');
 
     useEffect(() => {
         setImgUrl(props.imgUrl);
@@ -40,6 +41,38 @@ const HomeSlider = props => {
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))
     }
 
+    const imageUpload = e => {
+        let file = e.target.file[0];
+        createImage(file);
+    }
+
+    const createImage = (file) => {
+        let reader  = new FileReader();
+        reader.onload = (e) => {
+            setUploadImage(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    const fileUpload = e => {
+        axios({
+            method: 'post',
+            url: 'https://galacticblue.net/cheekyginger/backend/public/api/files',
+            headers: { 'content-type': 'application/json' },
+            data: {
+                'file_name': uploadImage
+            },
+            params: {
+                '_method': 'PUT'
+            }
+        })
+        .then(result => {
+            swal("Success!", "Home Slider content successfully updated!", "success"),
+            console.log(result.data.data)
+        })
+        .catch(error => swal("Uh oh! Something went wrong. Please try again."))
+    }
+
     return (
         <div className="row border border-primary px-2 py-2 my-2">
             <div className="col-6">
@@ -65,7 +98,10 @@ const HomeSlider = props => {
             </div>
             <div className="col-6">
                 <img src={imgUrl} width="100%" /><br /><br />
-                
+                <form onSubmit={fileUpload}>
+                    <input type="file" onChange={imageUpload} />
+                    <button type="submit">Upload</button>
+                </form>
             </div>
         </div>
     )
