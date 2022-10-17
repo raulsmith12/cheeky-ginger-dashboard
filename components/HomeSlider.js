@@ -42,7 +42,7 @@ const HomeSlider = props => {
     }
 
     const imageUpload = e => {
-        let file = e.target.file[0];
+        let file = e.target.files[0];
         createImage(file);
     }
 
@@ -55,20 +55,18 @@ const HomeSlider = props => {
     }
 
     const fileUpload = e => {
+        e.preventDefault();
         axios({
             method: 'post',
             url: 'https://galacticblue.net/cheekyginger/backend/public/api/files',
             headers: { 'content-type': 'application/json' },
             data: {
                 'file_name': uploadImage
-            },
-            params: {
-                '_method': 'PUT'
             }
         })
         .then(result => {
-            swal("Success!", "Home Slider content successfully updated!", "success"),
-            console.log(result.data.data)
+            swal("Success!", "Your image has been uploaded successfully! Please be sure to review all Home Slider information and click on Submit to change your slider image!", "success"),
+            setImgUrl(result.data)
         })
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))
     }

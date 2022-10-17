@@ -29,7 +29,7 @@ export default function Home() {
       </div>
       {sliders.map(i => {
         return (
-          <HomeSlider id={i.id} imgUrl={i.img_url} title={i.title} description={i.description} url={i.url} position={i.position} />
+          <HomeSlider id={i.id} imgUrl={i.img_url} title={i.title} description={i.description} url={i.url} position={i.position} key={i.id} />
         )
       })}
     </div>

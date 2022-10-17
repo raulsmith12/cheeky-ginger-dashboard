@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Sidebar = () => {
     return (
-        <div className="bg-secondary text-white full-screen position-relative">
+        <div className="bg-secondary text-white full-screen sticky-top">
             <div className="py-2">
                 <h4 className="text-center">Cheeky Ginger Studios</h4>
                 <ul className="nav flex-column ps-2">
