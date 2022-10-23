@@ -1,9 +1,12 @@
-import Link from 'next/link'
+import AddProduct from '../../../components/AddProduct';
 
-export default function Home() {
-  return (
-    <div>
-      <Link href="/">Click me</Link>
-    </div>
-  )
+const Product = () => {
+    return (
+        <div className="container-fluid">
+            <h2 className="display-2">Add New Product</h2>
+            <AddProduct />
+        </div>
+    )
 }
+
+export default Product;

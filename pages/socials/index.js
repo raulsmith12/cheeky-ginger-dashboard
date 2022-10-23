@@ -31,7 +31,7 @@ export default function Home() {
       <div className="row">
         {socials.map(i => {
           return (
-            <div className="col-4">
+            <div className="col-4" key={i.id}>
               <Social id={i.id} img={i.img_url} link={i.url} />
             </div>
           )
