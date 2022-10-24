@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import ProductInfo from '../../components/ProductInfo';
+import ProductPictures from '../../components/ProductPictures';
 
 const Product = () => {
     const router = useRouter();
@@ -21,13 +22,13 @@ const Product = () => {
             );
 
             setTitle(productStuff.data.data.title);
-            setCategory(productStuff.data.data.category);
-            setDescription(productStuff.data.data.description);
-            setPictures(productStuff.data.data.pictures);
-            setPrints(productStuff.data.data.prints);
-            setTags(productStuff.data.data.tags);
+            // setCategory(productStuff.data.data.category);
+            // setDescription(productStuff.data.data.description);
+            // setPictures(productStuff.data.data.pictures);
+            // setPrints(productStuff.data.data.prints);
+            // setTags(productStuff.data.data.tags);
 
-            console.log(productStuff.data.data);
+            // console.log(productStuff.data.data);
         }
 
         fetchData();
@@ -36,7 +37,9 @@ const Product = () => {
     return (
         <div className="container-fluid">
             <h2 className="display-2">{title}</h2>
-            <ProductInfo title={title} category={category} description={description} />
+            <ProductInfo productId={id} />
+            <h4>Pictures</h4>
+            <ProductPictures productId={id} />
         </div>
     )
 }

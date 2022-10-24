@@ -4,7 +4,7 @@ const Sidebar = () => {
     return (
         <div className="bg-secondary text-white full-screen sticky-top">
             <div className="py-2">
-                <h4 className="text-center">Cheeky Ginger Studios</h4>
+                <h4 className="text-center">Cheeky Ginger Studio</h4>
                 <ul className="nav flex-column ps-2">
                     <li className="nav-item py-2 border-bottom border-white">
                         <Link href="/"><a className="text-white sidenav-link"><h5>Home</h5></a></Link>
@@ -37,7 +37,7 @@ const Sidebar = () => {
             </div>
             <div className="position-absolute bottom-0 start-0 ps-2">
                 <h6 className="text-white text-center">
-                    &copy; {(new Date().getFullYear())} Cheeky Ginger Studios. All Rights Reserved.<br />
+                    &copy; {(new Date().getFullYear())} Cheeky Ginger Studio. All Rights Reserved.<br />
                     Powered by GALACTIC|blue
                 </h6>
             </div>

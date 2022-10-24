@@ -1,16 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const ProductInfo = props => {
-    const [title, setTitle] = useState(props.title);
-    const [category, setCategory] = useState(props.category);
-    const [description, setDescription] = useState(props.description);
+    const [title, setTitle] = useState();
+    const [category, setCategory] = useState();
+    const [description, setDescription] = useState();
+    
+    useEffect(() => {
+        async function fetchData() {
+        
+            const productStuff = await axios(
+                `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`
+            );
+
+            setTitle(productStuff.data.data.title);
+            setCategory(productStuff.data.data.category);
+            setDescription(productStuff.data.data.description);
+
+            console.log(productStuff.data.data);
+        }
+
+        fetchData();
+    }, []);
 
     const handleProductEdit = e => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/${id}`,
+            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'title': title,
