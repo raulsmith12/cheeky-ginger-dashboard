@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const ProductPictures = props => {
+    const router = useRouter();
     const [pictures, setPictures] = useState([]);
     const [showForm, setShowForm] = useState(false);
 
@@ -60,13 +62,37 @@ const ProductPictures = props => {
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))
     }
 
+    const confirmDelete = (id) => {
+        swal({
+            title: `Are you sure you want to delete this?`,
+            text: 'Once deleted, this file cannot be recovered!',
+            icon: 'warning',
+            dangerMode: true
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                axios({
+                    method: 'delete',
+                    url: `https://galacticblue.net/cheekyginger/backend/public/api/products/pictures/${id}`
+                })
+                .then(result => {
+                    swal("Success!", "Your image has been deleted!", "success"),
+                    setTimeout(() => {
+                        router.push("products/" + props.productId)
+                    }, 3500);
+                })
+                .catch(error => swal("Uh oh! Something went wrong. Please try again."))
+            }
+        })
+    }
+
     return (
         <div className="row">
             {pictures.map(i => {
                 return (
                     <div className="col-2 border border-primary py-2" key={i.id}>
                         <img src={i.url} width="100%" /><br /><br />
-                        <button type="button" className="btn btn-danger btn-lg">Remove Picture</button>
+                        <button type="button" className="btn btn-danger btn-lg" onClick={e => confirmDelete(i.id)}>Remove Picture</button>
                     </div>
                 )
             })}
