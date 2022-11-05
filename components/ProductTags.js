@@ -52,10 +52,7 @@ const ProductTags = props => {
                     url: `https://galacticblue.net/cheekyginger/backend/public/api/products/tags/${e}`
                 })
                 .then(result => {
-                    swal("Success!", "Your tag has been deleted!", "success"),
-                    setTimeout(() => {
-                        router.push("products/" + props.productId)
-                    }, 3500);
+                    swal("Success!", "Your tag has been deleted!", "success")
                 })
                 .catch(error => swal("Uh oh! Something went wrong. Please try again."))
             }
@@ -63,28 +60,30 @@ const ProductTags = props => {
     }
 
     const addTag = () => {
+        console.log(props.productId, tagField);
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/tags/',
+            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/tags',
             headers: { 'content-type': 'application/json' },
             data: {
+                'product_id': props.productId,
                 'tag': tagField
             }
         })
         .then(result => {
-            swal("Success!", "Tag successfully added!", "success"),
-            setTimeout(() => {
-                router.push("products/" + props.productId)
-            }, 3500);
+            swal("Success!", "Tag successfully added!", "success")
         })
-        .catch(error => swal("Uh oh! Something went wrong. Please try again."))
+        .catch(error => {
+            swal("Uh oh! Something went wrong. Please try again."),
+            console.log(error)
+        })
     }
 
     return (
         <div className="row">
             {tags.map(i => {
                 return (
-                    <div className="col-4">
+                    <div className="col-4" key={i.id}>
                         <div className="input-group" id={'field-' + i.id}>
                             <input type="text" className="form-control" placeholder={i.tag} onFocus={() => setActiveField('field-' + i.id)} onChange={e => setTagField(e.target.value)} />
                             <button className={"btn " + (!tagField || activeField !== ('field-' + i.id) ? 'btn-outline-success disabled' : 'btn-success')} onClick={() => updateTag(i.id)}>Save</button>

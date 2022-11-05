@@ -40,7 +40,7 @@ export default function Home() {
         swal("Success!", "Privacy page content successfully updated!", "success")
       })
       .catch(error => swal("Uh oh! Something went wrong. Please try again."))
-    })
+    }, 2500)
   }
 
   return (

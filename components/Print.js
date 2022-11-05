@@ -30,7 +30,7 @@ const Print = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/sizes',
+            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/prints',
             headers: { 'content-type': 'application/json' },
             data: {
                 'product_id': props.productId,
@@ -39,8 +39,9 @@ const Print = props => {
         })
         .then(result => {
             swal("Success!", "Print type information has been added updated!", "success");
+            setPrints(prints => [...prints, tempPrint]);
             setTimeout(() => {
-                router.push("products/" + props.productId)
+                setTempPrint();
             }, 3500);
         })
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))
@@ -61,9 +62,9 @@ const Print = props => {
             }
         })
         .then(result => {
-            swal("Success!", "Print Size information has been added updated!", "success");
+            swal("Success!", "Print Size information has been added!", "success");
             setTimeout(() => {
-                router.push("products/" + props.productId)
+                router.push("/products");
             }, 3500);
         })
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))
@@ -108,7 +109,7 @@ const Print = props => {
                                                     </div>
                                                     <div className="col-12">
                                                         <label htmlFor="paypalId" className="form-label">PayPal ID</label>
-                                                        <input type="text" className="form-control" id="paypalId" name="paypalId" required value={(tempId !== null ? tempId : '')} onChange={e => setTempId(e.target.value)} />
+                                                        <input type="text" className="form-control" id="paypalId" name="paypalId" value={(tempId !== null ? tempId : '')} onChange={e => setTempId(e.target.value)} />
                                                     </div>
                                                 </div>
                                                 <button type="submit" className="btn btn-success">Add New Size</button>
@@ -124,7 +125,7 @@ const Print = props => {
             <form onSubmit={e => addNewPrint(e)}>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="Add New Print?" onChange={e => setTempPrint(e.target.value)} value={(tempPrint !== null ? tempPrint : '')} />
-                    <button class={"btn " + (!tempPrint ? "btn-outline-success disabled" : "btn-success")} type="submit">Add New Print</button>
+                    <button className={"btn " + (!tempPrint ? "btn-outline-success disabled" : "btn-success")} type="submit">Add New Print</button>
                 </div>
             </form>
         </div>

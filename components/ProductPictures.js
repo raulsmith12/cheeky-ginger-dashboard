@@ -6,6 +6,7 @@ const ProductPictures = props => {
     const router = useRouter();
     const [pictures, setPictures] = useState([]);
     const [showForm, setShowForm] = useState(false);
+    const [uploadImage, setUploadImage] = useState('');
 
     useEffect(() => {
         async function fetchData() {
@@ -29,7 +30,8 @@ const ProductPictures = props => {
                 'product_id': props.productId,
                 'url': file
             }
-        })
+        });
+        setPictures(pictures => [...pictures, file]);
     }
 
     const imageUpload = e => {
@@ -56,10 +58,9 @@ const ProductPictures = props => {
             }
         })
         .then(result => {
-            swal("Success!", "Your image has been uploaded successfully! Please be sure to review all Social information and click on Submit to change your slider image!", "success"),
+            swal("Success!", "Your image has been uploaded successfully!", "success"),
             addImageToProduct(result.data)
         })
-        .catch(error => swal("Uh oh! Something went wrong. Please try again."))
     }
 
     const confirmDelete = (id) => {
@@ -78,7 +79,7 @@ const ProductPictures = props => {
                 .then(result => {
                     swal("Success!", "Your image has been deleted!", "success"),
                     setTimeout(() => {
-                        router.push("products/" + props.productId)
+                        router.push("/products")
                     }, 3500);
                 })
                 .catch(error => swal("Uh oh! Something went wrong. Please try again."))

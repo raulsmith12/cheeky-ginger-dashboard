@@ -16,8 +16,6 @@ const ProductInfo = props => {
             setTitle(productStuff.data.data.title);
             setCategory(productStuff.data.data.category);
             setDescription(productStuff.data.data.description);
-
-            console.log(productStuff.data.data);
         }
 
         fetchData();
@@ -49,17 +47,17 @@ const ProductInfo = props => {
             <div className="row">
                 <div className="col-6 mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
-                    <input type="text" className="form-control" id="title" name="title" required value={title} onChange={e => setTitle(e.target.value)} />
+                    <input type="text" className="form-control" id="title" name="title" required defaultValue={title} onChange={e => setTitle(e.target.value)} />
                 </div>
                 <div className="col-6 mb-3">
                     <label htmlFor="category" className="form-label">Category</label>
-                    <input type="text" className="form-control" id="category" name="category" required value={category} onChange={e => setCategory(e.target.value)} />
+                    <input type="text" className="form-control" id="category" name="category" required defaultValue={category} onChange={e => setCategory(e.target.value)} />
                 </div>
             </div>
             <div className="row">
                 <div className="col-12 mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <textarea className="form-control" id="description" name="description" required value={description} onChange={e => setDescription(e.target.value)} rows="3" />
+                    <textarea className="form-control" id="description" name="description" required defaultValue={description} onChange={e => setDescription(e.target.value)} rows="3" />
                     <button type="submit" className="btn btn-primary">Save Changes</button>
                 </div>
             </div>
