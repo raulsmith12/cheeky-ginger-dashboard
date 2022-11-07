@@ -13,8 +13,6 @@ export default function Home() {
       );
 
       setSections(pageSections.data.data);
-
-      console.log(pageSections.data.data);
     }
 
     fetchData();
@@ -31,7 +29,7 @@ export default function Home() {
       <div className="row">
         {sections.map(i => {
           return (
-            <div className="col-4">
+            <div className="col-4" key={i.id}>
               <HomeSection id={i.id} title={i.title} desc={i.description} />
             </div>
           )

@@ -64,7 +64,7 @@ const Print = props => {
         .then(result => {
             swal("Success!", "Print Size information has been added!", "success");
             setTimeout(() => {
-                router.push("/products");
+                router.push("products");
             }, 3500);
         })
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))

@@ -13,8 +13,6 @@ export default function Home() {
       );
 
       setSocials(socialLinks.data.data);
-
-      console.log(socialLinks.data.data);
     }
 
     fetchData();

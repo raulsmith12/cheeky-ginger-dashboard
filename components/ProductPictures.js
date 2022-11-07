@@ -79,7 +79,7 @@ const ProductPictures = props => {
                 .then(result => {
                     swal("Success!", "Your image has been deleted!", "success"),
                     setTimeout(() => {
-                        router.push("/products")
+                        router.push("products")
                     }, 3500);
                 })
                 .catch(error => swal("Uh oh! Something went wrong. Please try again."))

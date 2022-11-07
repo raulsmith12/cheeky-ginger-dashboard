@@ -12,8 +12,6 @@ export default function Home() {
       const homeSliders = await axios('https://galacticblue.net/cheekyginger/backend/public/api/home-sliders');
 
       setSliders(homeSliders.data.data);
-
-      console.log(homeSliders.data.data);
     }
 
     fetchData();
