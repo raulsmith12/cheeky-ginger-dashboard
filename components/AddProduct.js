@@ -13,7 +13,7 @@ const AddProduct = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/',
+            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products',
             headers: { 'content-type': 'application/json' },
             data: {
                 'title': title,
@@ -22,10 +22,10 @@ const AddProduct = props => {
             }
         })
         .then(result => {
-            setRoute(result.data.data.id);
             swal("Success!", "Product info successfully updated!", "success");
             setTimeout(() => {
-                router.push("products/" + route)
+                setRoute(result.data.data.id);
+                router.push("/products")
             }, 3500);
         })
         .catch(error => swal("Uh oh! Something went wrong. Please try again."))

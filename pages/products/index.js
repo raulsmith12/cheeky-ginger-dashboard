@@ -14,6 +14,7 @@ export default function Home() {
       );
 
       setProducts(productCards.data.data);
+      console.log(productCards)
     }
 
     fetchData();
@@ -30,7 +31,7 @@ export default function Home() {
         {products.map(i => {
           return (
             <div className="col-3" key={i.id}>
-              <ProductCard title={i.title} img={i.pictures[0].url} id={i.id} />
+              <ProductCard title={i.title} img={i.pictures.length > 0 ? i.pictures[0].url : null} id={i.id} />
             </div>
           )
         })}
