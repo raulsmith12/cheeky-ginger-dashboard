@@ -10,12 +10,6 @@ const Product = () => {
     const router = useRouter();
     const { id } = router.query;
     const [title, setTitle] = useState();
-    const [prints, setPrints] = useState([]);
-    const [showFormGroup, setShowFormGroup] = useState();
-    const [size, setSize] = useState();
-    const [price, setPrice] = useState();
-    const [sku, setSku] = useState();
-    const [paypalId, setPaypalId] = useState();
 
     useEffect(() => {
         async function fetchData() {
@@ -25,7 +19,6 @@ const Product = () => {
             );
 
             setTitle(productStuff.data.data.title);
-            setPrints(productStuff.data.data.prints);
         }
 
         fetchData();

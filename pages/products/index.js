@@ -14,7 +14,6 @@ export default function Home() {
       );
 
       setProducts(productCards.data.data);
-      console.log(productCards)
     }
 
     fetchData();
