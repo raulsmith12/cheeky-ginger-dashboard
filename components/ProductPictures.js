@@ -88,23 +88,25 @@ const ProductPictures = props => {
     }
 
     return (
-        <div className="row">
-            {pictures.map(i => {
-                return (
-                    <div className="col-2 border border-primary py-2" key={i.id}>
-                        <img src={i.url} width="100%" /><br /><br />
-                        <button type="button" className="btn btn-danger btn-lg" onClick={e => confirmDelete(i.id)}>Remove Picture</button>
-                    </div>
-                )
-            })}
-            <div className="col-2">
-                <button type="button" className="btn btn-success btn-lg" onClick={e => setShowForm(true)}>Add Picture</button>
-                {showForm && (
-                    <form onSubmit={fileUpload}>
-                        <input type="file" onChange={imageUpload} />
-                        <button type="submit">Upload</button>
-                    </form>
-                )}
+        <div className="container-fluid">
+            <div className="row">
+                {pictures.map(i => {
+                    return (
+                        <div className="col-2 border border-primary py-2" key={i.id}>
+                            <img src={i.url} width="100%" /><br /><br />
+                            <button type="button" className="btn btn-danger btn-lg" onClick={e => confirmDelete(i.id)}>Remove Picture</button>
+                        </div>
+                    )
+                })}
+                <div className="col-2">
+                    <button type="button" className="btn btn-success btn-lg" onClick={e => setShowForm(true)}>Add Picture</button>
+                    {showForm && (
+                        <form onSubmit={fileUpload}>
+                            <input type="file" onChange={imageUpload} />
+                            <button type="submit">Upload</button>
+                        </form>
+                    )}
+                </div>
             </div>
         </div>
     )

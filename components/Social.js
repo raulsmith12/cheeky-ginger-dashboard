@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 
-const HomeSlider = props => {
+const Social = props => {
     const [imgUrl, setImgUrl] = useState('');
     const [url, setUrl] = useState('');
     const [uploadImage, setUploadImage] = useState('');
@@ -63,25 +63,27 @@ const HomeSlider = props => {
     }
 
     return (
-        <div>
-            <div className="col-4 border border-primary px-2 py-2 my-2">
-                <div className="mb-3">
-                    <img src={imgUrl} width="100%" /><br /><br />
-                    <form onSubmit={fileUpload}>
-                        <input type="file" onChange={imageUpload} />
-                        <button type="submit">Upload</button>
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col border border-primary px-2 py-2 my-2">
+                    <div className="mb-3">
+                        <img src={imgUrl} width="100%" /><br /><br />
+                        <form onSubmit={fileUpload}>
+                            <input type="file" onChange={imageUpload} />
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                    <form onSubmit={e => handleFormSubmit(e)}>
+                        <div className="mb-3">
+                            <label htmlFor="urlText" className="form-label">URL</label>
+                            <input type="text" className="form-control" id="urlText" name="urlText" required value={url} onChange={e => setUrl(e.target.value)} />
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
                 </div>
-                <form onSubmit={e => handleFormSubmit(e)}>
-                    <div className="mb-3">
-                        <label htmlFor="urlText" className="form-label">URL</label>
-                        <input type="text" className="form-control" id="urlText" name="urlText" required value={url} onChange={e => setUrl(e.target.value)} />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
             </div>
         </div>
     )
 }
 
-export default HomeSlider;
+export default Social;

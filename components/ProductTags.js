@@ -80,23 +80,25 @@ const ProductTags = props => {
     }
 
     return (
-        <div className="row">
-            {tags.map(i => {
-                return (
-                    <div className="col-4" key={i.id}>
-                        <div className="input-group" id={'field-' + i.id}>
-                            <input type="text" className="form-control" placeholder={i.tag} onFocus={() => setActiveField('field-' + i.id)} onChange={e => setTagField(e.target.value)} />
-                            <button className={"btn " + (!tagField || activeField !== ('field-' + i.id) ? 'btn-outline-success disabled' : 'btn-success')} onClick={() => updateTag(i.id)}>Save</button>
-                            <button className={"btn " + (!tagField || activeField !== ('field-' + i.id) ? 'btn-outline-danger disabled' : 'btn-danger')} onClick={() => deleteTag(i.id)}>Remove</button>
+        <div className="container-fluid">
+            <div className="row">
+                {tags.map(i => {
+                    return (
+                        <div className="col-4" key={i.id}>
+                            <div className="input-group" id={'field-' + i.id}>
+                                <input type="text" className="form-control" placeholder={i.tag} onFocus={() => setActiveField('field-' + i.id)} onChange={e => setTagField(e.target.value)} />
+                                <button className={"btn " + (!tagField || activeField !== ('field-' + i.id) ? 'btn-outline-success disabled' : 'btn-success')} onClick={() => updateTag(i.id)}>Save</button>
+                                <button className={"btn " + (!tagField || activeField !== ('field-' + i.id) ? 'btn-outline-danger disabled' : 'btn-danger')} onClick={() => deleteTag(i.id)}>Remove</button>
+                            </div>
                         </div>
+                    )
+                })}
+                <div className="col-4">
+                    <div className="input-group" id="field-new">
+                        <input type="text" className="form-control" placeholder="Insert New Tag Here" onFocus={() => setActiveField('field-new')} onChange={e => setTagField(e.target.value)} />
+                        <button type="button" className={"btn " + (!tagField || activeField !== ('field-new') ? 'btn-outline-success disabled' : 'btn-success')} onClick={() => addTag()}>Save</button>
+                        <button className={"btn " + (!tagField || activeField !== ('field-new') ? 'btn-outline-danger disabled' : 'btn-danger')} onClick={() => setTagField()}>Cancel</button>
                     </div>
-                )
-            })}
-            <div className="col-4">
-                <div className="input-group" id="field-new">
-                    <input type="text" className="form-control" placeholder="Insert New Tag Here" onFocus={() => setActiveField('field-new')} onChange={e => setTagField(e.target.value)} />
-                    <button type="button" className={"btn " + (!tagField || activeField !== ('field-new') ? 'btn-outline-success disabled' : 'btn-success')} onClick={() => addTag()}>Save</button>
-                    <button className={"btn " + (!tagField || activeField !== ('field-new') ? 'btn-outline-danger disabled' : 'btn-danger')} onClick={() => setTagField()}>Cancel</button>
                 </div>
             </div>
         </div>

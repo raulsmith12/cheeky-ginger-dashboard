@@ -26,17 +26,21 @@ const Product = () => {
 
     return (
         <div className="container-fluid">
-            <h2 className="display-2">{title}</h2>
-            <ProductInfo productId={id} />
-            <hr />
-            <h4>Pictures</h4>
-            <ProductPictures productId={id} />
-            <hr />
-            <h4>Tags</h4>
-            <ProductTags productId={id} />
-            <hr />
-            <h4>Print Styles, Sizes, and Prices</h4>
-            <Print productId={id} />
+            <div className="row">
+                <div className="col">
+                    <h2 className="display-2">{title}</h2>
+                    <ProductInfo productId={id} />
+                    <hr />
+                    <h4>Pictures</h4>
+                    <ProductPictures productId={id} />
+                    <hr />
+                    <h4>Tags</h4>
+                    <ProductTags productId={id} />
+                    <hr />
+                    <h4>Print Styles, Sizes, and Prices</h4>
+                    <Print productId={id} />
+                </div>
+            </div>
         </div>
     )
 }

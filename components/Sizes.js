@@ -47,25 +47,27 @@ const Sizes = props => {
 
     return (
         <form onSubmit={e => saveChanges(e)}>
-            <div className="row mb-3">
-                <div className="col-12">
-                    <label htmlFor="size" className="form-label">Size</label>
-                    <input type="text" className="form-control" id="size" name="size" required value={size} onChange={e => setSize(e.target.value)} />
-                </div>
-                <div className="col-12">
-                    <label htmlFor="price" className="form-label">Price</label>
-                    <div className="input-group">
-                        <span className="input-group-text">$</span>
-                        <input type="text" className="form-control" id="price" name="price" required value={price} onChange={e => setPrice(e.target.value)} />
+            <div className="container">
+                <div className="row mb-3">
+                    <div className="col-12">
+                        <label htmlFor="size" className="form-label">Size</label>
+                        <input type="text" className="form-control" id="size" name="size" required value={size} onChange={e => setSize(e.target.value)} />
                     </div>
-                </div>
-                <div className="col-12">
-                    <label htmlFor="sku" className="form-label">SKU</label>
-                    <input type="text" className="form-control" id="sku" name="sku" required value={sku} onChange={e => setSku(e.target.value)} />
-                </div>
-                <div className="col-12">
-                    <label htmlFor="paypalId" className="form-label">PayPal ID</label>
-                    <input type="text" className="form-control" id="paypalId" name="paypalId" required value={(paypalId !== null ? paypalId : '')} onChange={e => setPaypalId(e.target.value)} />
+                    <div className="col-12">
+                        <label htmlFor="price" className="form-label">Price</label>
+                        <div className="input-group">
+                            <span className="input-group-text">$</span>
+                            <input type="text" className="form-control" id="price" name="price" required value={price} onChange={e => setPrice(e.target.value)} />
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <label htmlFor="sku" className="form-label">SKU</label>
+                        <input type="text" className="form-control" id="sku" name="sku" required value={sku} onChange={e => setSku(e.target.value)} />
+                    </div>
+                    <div className="col-12">
+                        <label htmlFor="paypalId" className="form-label">PayPal ID</label>
+                        <input type="text" className="form-control" id="paypalId" name="paypalId" required value={(paypalId !== null ? paypalId : '')} onChange={e => setPaypalId(e.target.value)} />
+                    </div>
                 </div>
             </div>
             <button type="submit" className="btn btn-success">Save Changes</button>

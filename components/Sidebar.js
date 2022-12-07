@@ -38,7 +38,7 @@ const Sidebar = () => {
             <div className="position-absolute bottom-0 start-0 ps-2">
                 <h6 className="text-white text-center">
                     &copy; {(new Date().getFullYear())} Cheeky Ginger Studio.<br />All Rights Reserved.<br />
-                    Powered by GALACTIC|blue
+                    Powered by Galactic Digital Studios
                 </h6>
             </div>
         </div>

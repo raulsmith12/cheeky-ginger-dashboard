@@ -37,15 +37,19 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1>Home Page Content</h1>
-      <form className="border border-primary px-2 py-2" onSubmit={e => handleFormSubmit(e)}>
-        <div className="mb-3">
-          <label htmlFor='contentText' className="form-label">Page Content</label>
-          <textarea className="form-control" id="contentText" name="contentText" required value={content} onChange={e => setContent(e.target.value)} rows="5" />
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col">
+          <h1>Home Page Content</h1>
+          <form className="border border-primary px-2 py-2" onSubmit={e => handleFormSubmit(e)}>
+            <div className="mb-3">
+              <label htmlFor='contentText' className="form-label">Page Content</label>
+              <textarea className="form-control" id="contentText" name="contentText" required value={content} onChange={e => setContent(e.target.value)} rows="5" />
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+      </div>
     </div>
   )
 }
