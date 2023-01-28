@@ -42,25 +42,29 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       ) : (
-        <div className="container-sm full-screen d-flex align-items-center justify-content-center">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="text-center">Welcome</h3>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-6 offset-3">
-              <form className="border border-primary px-2 py-2" onSubmit={e => handleFormSubmit(e)}>
-                <div className="mb-3">
-                  <label htmlFor='emailInput' className="form-label">Email address</label>
-                  <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" required value={email} onChange={e => setEmail(e.target.value)} />
+        <div className="row">
+          <div className="col">
+            <div className="container full-screen align-items-center justify-content-center">
+              <div className="row">
+                <div className="col-12">
+                  <h3 className="text-center">Welcome</h3>
                 </div>
-                <div className="mb-3">
-                  <label htmlFor='passwordInput' className="form-label">Password</label>
-                  <input type="password" className="form-control" id="passwordInput" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
+              </div>
+              <div className="row">
+                <div className="col-6 offset-3">
+                  <form className="border border-primary px-2 py-2" onSubmit={e => handleFormSubmit(e)}>
+                    <div className="mb-3">
+                      <label htmlFor='emailInput' className="form-label">Email address</label>
+                      <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" required value={email} onChange={e => setEmail(e.target.value)} />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor='passwordInput' className="form-label">Password</label>
+                      <input type="password" className="form-control" id="passwordInput" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                  </form>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
