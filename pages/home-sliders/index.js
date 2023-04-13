@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
 
-      const homeSliders = await axios('https://galacticblue.net/cheekyginger/backend/public/api/home-sliders');
+      const homeSliders = await axios('https://backend.cheekygingerstudios.com/public/api/home-sliders');
 
       setSliders(homeSliders.data.data);
     }

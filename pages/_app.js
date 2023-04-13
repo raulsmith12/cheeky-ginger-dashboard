@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     e.preventDefault();
     axios({
       method: 'post',
-      url: 'https://galacticblue.net/cheekyginger/backend/public/api/login',
+      url: 'https://backend.cheekygingerstudios.com/public/api/login',
       headers: { 'content-type': 'application/json' },
       data: { email, password }
     })

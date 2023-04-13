@@ -9,7 +9,7 @@ export default function Home() {
     async function fetchData() {
 
       const pageContent = await axios(
-        'https://galacticblue.net/cheekyginger/backend/public/api/home-fields'
+        'https://backend.cheekygingerstudios.com/public/api/home-fields'
       );
 
       setContent(pageContent.data.data[0].description);
@@ -23,7 +23,7 @@ export default function Home() {
     e.preventDefault();
     axios({
       method: 'post',
-      url: 'https://galacticblue.net/cheekyginger/backend/public/api/home-fields/1',
+      url: 'https://backend.cheekygingerstudios.com/public/api/home-fields/1',
       headers: { 'content-type': 'application/json' },
       data: { 'description': content },
       params: {

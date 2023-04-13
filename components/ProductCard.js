@@ -17,7 +17,7 @@ const ProductCard = props => {
             if (willDelete) {
                 axios({
                     method: 'delete',
-                    url: `https://galacticblue.net/cheekyginger/backend/public/api/products/${e}`
+                    url: `https://backend.cheekygingerstudios.com/public/api/products/${e}`
                 })
                 .then(result => {
                     swal("Success!", "Your product has been deleted!", "success"),

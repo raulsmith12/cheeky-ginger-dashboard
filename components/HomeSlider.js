@@ -22,7 +22,7 @@ const HomeSlider = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/home-sliders/${props.id}`,
+            url: `https://backend.cheekygingerstudios.com/public/api/home-sliders/${props.id}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'img_url': imgUrl,
@@ -58,7 +58,7 @@ const HomeSlider = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/files',
+            url: 'https://backend.cheekygingerstudios.com/public/api/files',
             headers: { 'content-type': 'application/json' },
             data: {
                 'file_name': uploadImage

@@ -12,7 +12,7 @@ const ProductPictures = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`
+                `https://backend.cheekygingerstudios.com/public/api/products/${props.productId}`
             );
 
             setPictures(productStuff.data.data.pictures);
@@ -24,7 +24,7 @@ const ProductPictures = props => {
     const addImageToProduct = (file) => {
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/pictures',
+            url: 'https://backend.cheekygingerstudios.com/public/api/products/pictures',
             headers: { 'content-type': 'application/json' },
             data: {
                 'product_id': props.productId,
@@ -51,7 +51,7 @@ const ProductPictures = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/files',
+            url: 'https://backend.cheekygingerstudios.com/public/api/files',
             headers: { 'content-type': 'application/json' },
             data: {
                 'file_name': uploadImage
@@ -74,7 +74,7 @@ const ProductPictures = props => {
             if (willDelete) {
                 axios({
                     method: 'delete',
-                    url: `https://galacticblue.net/cheekyginger/backend/public/api/products/pictures/${id}`
+                    url: `https://backend.cheekygingerstudios.com/public/api/products/pictures/${id}`
                 })
                 .then(result => {
                     swal("Success!", "Your image has been deleted!", "success"),

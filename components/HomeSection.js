@@ -14,7 +14,7 @@ const HomeSection = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/home-sections/${props.id}`,
+            url: `https://backend.cheekygingerstudios.com/public/api/home-sections/${props.id}`,
             headers: { 'content-type': 'application/json' },
             data: { 'title': title, 'description': description },
             params: {

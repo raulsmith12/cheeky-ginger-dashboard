@@ -11,7 +11,7 @@ const Sizes = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://galacticblue.net/cheekyginger/backend/public/api/products/sizes/${props.sizeId}`
+                `https://backend.cheekygingerstudios.com/public/api/products/sizes/${props.sizeId}`
             );
 
             setSize(productStuff.data.data.print_size);
@@ -27,7 +27,7 @@ const Sizes = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/sizes/${props.sizeId}`,
+            url: `https://backend.cheekygingerstudios.com/public/api/products/sizes/${props.sizeId}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'print_size': size,

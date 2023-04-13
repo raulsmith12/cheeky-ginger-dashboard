@@ -15,7 +15,7 @@ const Product = () => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://galacticblue.net/cheekyginger/backend/public/api/products/${id}`
+                `https://backend.cheekygingerstudios.com/public/api/products/${id}`
             );
 
             setTitle(productStuff.data.data.title);

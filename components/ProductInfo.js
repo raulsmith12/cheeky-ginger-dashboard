@@ -10,7 +10,7 @@ const ProductInfo = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`
+                `https://backend.cheekygingerstudios.com/public/api/products/${props.productId}`
             );
 
             setTitle(productStuff.data.data.title);
@@ -25,7 +25,7 @@ const ProductInfo = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`,
+            url: `https://backend.cheekygingerstudios.com/public/api/products/${props.productId}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'title': title,

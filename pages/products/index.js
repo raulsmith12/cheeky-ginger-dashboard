@@ -10,7 +10,7 @@ export default function Home() {
     async function fetchData() {
       
       const productCards = await axios(
-        'https://galacticblue.net/cheekyginger/backend/public/api/products'
+        'https://backend.cheekygingerstudios.com/public/api/products'
       );
 
       setProducts(productCards.data.data);

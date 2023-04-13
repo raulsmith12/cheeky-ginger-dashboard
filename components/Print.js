@@ -17,7 +17,7 @@ const Print = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`
+                `https://backend.cheekygingerstudios.com/public/api/products/${props.productId}`
             );
 
             setPrints(productStuff.data.data.prints);
@@ -30,7 +30,7 @@ const Print = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/prints',
+            url: 'https://backend.cheekygingerstudios.com/public/api/products/prints',
             headers: { 'content-type': 'application/json' },
             data: {
                 'product_id': props.productId,
@@ -51,7 +51,7 @@ const Print = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/sizes',
+            url: 'https://backend.cheekygingerstudios.com/public/api/products/sizes',
             headers: { 'content-type': 'application/json' },
             data: {
                 'product_print_id': id,

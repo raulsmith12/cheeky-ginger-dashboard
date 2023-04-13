@@ -9,7 +9,7 @@ export default function Home() {
     async function fetchData() {
       
       const socialLinks = await axios(
-        'https://galacticblue.net/cheekyginger/backend/public/api/socials'
+        'https://backend.cheekygingerstudios.com/public/api/socials'
       );
 
       setSocials(socialLinks.data.data);

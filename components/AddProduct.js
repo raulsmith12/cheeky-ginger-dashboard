@@ -13,7 +13,7 @@ const AddProduct = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products',
+            url: 'https://backend.cheekygingerstudios.com/public/api/products',
             headers: { 'content-type': 'application/json' },
             data: {
                 'title': title,

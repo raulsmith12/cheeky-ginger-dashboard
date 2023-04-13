@@ -12,7 +12,7 @@ const ProductTags = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.productId}`
+                `https://backend.cheekygingerstudios.com/public/api/products/${props.productId}`
             );
             setTags(productStuff.data.data.tags);
         }
@@ -23,7 +23,7 @@ const ProductTags = props => {
     const updateTag = (e) => {
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/tags/${e}`,
+            url: `https://backend.cheekygingerstudios.com/public/api/products/tags/${e}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'tag': tagField
@@ -49,7 +49,7 @@ const ProductTags = props => {
             if (willDelete) {
                 axios({
                     method: 'delete',
-                    url: `https://galacticblue.net/cheekyginger/backend/public/api/products/tags/${e}`
+                    url: `https://backend.cheekygingerstudios.com/public/api/products/tags/${e}`
                 })
                 .then(result => {
                     swal("Success!", "Your tag has been deleted!", "success")
@@ -63,7 +63,7 @@ const ProductTags = props => {
         console.log(props.productId, tagField);
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/products/tags',
+            url: 'https://backend.cheekygingerstudios.com/public/api/products/tags',
             headers: { 'content-type': 'application/json' },
             data: {
                 'product_id': props.productId,

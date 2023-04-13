@@ -16,7 +16,7 @@ const Social = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/socials/${props.id}`,
+            url: `https://backend.cheekygingerstudios.com/public/api/socials/${props.id}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'img_url': imgUrl,
@@ -49,7 +49,7 @@ const Social = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'https://galacticblue.net/cheekyginger/backend/public/api/files',
+            url: 'https://backend.cheekygingerstudios.com/public/api/files',
             headers: { 'content-type': 'application/json' },
             data: {
                 'file_name': uploadImage

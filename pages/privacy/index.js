@@ -11,7 +11,7 @@ export default function Home() {
     async function fetchData() {
 
       const pageContent = await axios(
-        'https://galacticblue.net/cheekyginger/backend/public/api/privacy-pages'
+        'https://backend.cheekygingerstudios.com/public/api/privacy-pages'
       );
 
       setContent(pageContent.data.data[0].text);
@@ -29,7 +29,7 @@ export default function Home() {
     setTimeout(() => {
       axios({
         method: 'post',
-        url: 'https://galacticblue.net/cheekyginger/backend/public/api/privacy-pages/1',
+        url: 'https://backend.cheekygingerstudios.com/public/api/privacy-pages/1',
         headers: { 'content-type': 'application/json' },
         data: { 'text': editorRef.current.getContent() },
         params: {

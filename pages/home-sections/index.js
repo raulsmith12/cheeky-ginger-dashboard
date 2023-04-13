@@ -9,7 +9,7 @@ export default function Home() {
     async function fetchData() {
       
       const pageSections = await axios(
-        'https://galacticblue.net/cheekyginger/backend/public/api/home-sections'
+        'https://backend.cheekygingerstudios.com/public/api/home-sections'
       );
 
       setSections(pageSections.data.data);
